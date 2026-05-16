@@ -72,8 +72,8 @@ João Henrique dos Santos Silva & Carlos Vinicius Felix da Silva
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Frontend (Next.js)                        │
-│  http://localhost:3000                                       │
+│                    Frontend (Next.js)                       │
+│  http://localhost:3000                                      │
 │  - React 18 + TypeScript                                    │
 │  - Tailwind CSS + Design System                             │
 │  - Upload drag & drop + Preview                             │
@@ -83,21 +83,21 @@ João Henrique dos Santos Silva & Carlos Vinicius Felix da Silva
                      │ (multipart/form-data)
                      ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Backend (FastAPI)                         │
-│  http://localhost:8000                                       │
+│                    Backend (FastAPI)                        │
+│  http://localhost:8000                                      │
 │  - Python 3.11 + FastAPI                                    │
 │  - PyTorch 2.0+ (CUDA/CPU)                                  │
 │  - EfficientNetV2-S (Transfer Learning)                     │
-│  - Preprocessing Pipeline                                    │
+│  - Preprocessing Pipeline                                   │
 └────────────────────┬────────────────────────────────────────┘
                      │
                      ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                 Modelo (model_B.pth)                         │
+│                 Modelo (model_B.pth)                        │
 │  - EfficientNetV2-S fine-tuned                              │
-│  - Input: 224x224 RGB                                        │
+│  - Input: 224x224 RGB                                       │
 │  - Output: [asphalt, belgian_blocks, offroad]               │
-│  - Trained with Focal Loss + Data Augmentation             │
+│  - Trained with Focal Loss + Data Augmentation              │
 └─────────────────────────────────────────────────────────────┘
 ```
 

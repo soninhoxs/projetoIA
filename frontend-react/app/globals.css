@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-primary-800;
+  }
+
+  body {
+    @apply bg-primary-950 text-primary-100 antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-primary-900/40 backdrop-blur-xl border border-primary-800/50;
+  }
+  
+  .glass-hover {
+    @apply hover:bg-primary-900/60 hover:border-primary-700/50 transition-all duration-300;
+  }
+}
