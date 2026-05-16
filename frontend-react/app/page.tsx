@@ -34,30 +34,30 @@ export default function Home() {
       {/* Grid pattern overlay */}
       <div className="fixed inset-0 bg-[linear-gradient(rgba(100,116,139,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
       
-      <div className="relative z-10 container mx-auto px-4 py-8 md:py-12">
+      <div className="relative z-10 container mx-auto px-3 sm:px-4 py-6 md:py-8 lg:py-12">
         {/* Header */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-primary-200 via-accent-400 to-primary-300 bg-clip-text text-transparent tracking-tight">
+        <header className="text-center mb-8 md:mb-12 px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 md:mb-3 bg-gradient-to-r from-primary-200 via-accent-400 to-primary-300 bg-clip-text text-transparent tracking-tight break-words">
             Road Surface AI
           </h1>
-          <p className="text-primary-400 text-sm md:text-base font-mono tracking-widest uppercase">
+          <p className="text-primary-400 text-[10px] sm:text-xs md:text-base font-mono tracking-widest uppercase px-4 break-words">
             Deep Learning • Computer Vision • Real-Time Classification
           </p>
           
-          <div className="mt-6 flex justify-center">
+          <div className="mt-4 md:mt-6 flex justify-center">
             <StatusBadge isOnline={isApiOnline} />
           </div>
         </header>
 
         {/* Main content */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {/* Upload section */}
-          <div className="glass glass-hover rounded-2xl p-6">
-            <h2 className="text-xl font-semibold mb-4 text-primary-100 flex items-center gap-2">
-              <svg className="w-5 h-5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="glass glass-hover rounded-2xl p-4 md:p-6">
+            <h2 className="text-base md:text-xl font-semibold mb-3 md:mb-4 text-primary-100 flex items-center gap-2 flex-wrap">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>
-              Upload de Imagem
+              <span className="break-words">Upload de Imagem</span>
             </h2>
             <Upload 
               onPrediction={handlePrediction}
@@ -66,12 +66,12 @@ export default function Home() {
           </div>
 
           {/* Results section */}
-          <div className="glass glass-hover rounded-2xl p-6">
-            <h2 className="text-xl font-semibold mb-4 text-primary-100 flex items-center gap-2">
-              <svg className="w-5 h-5 text-success-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="glass glass-hover rounded-2xl p-4 md:p-6">
+            <h2 className="text-base md:text-xl font-semibold mb-3 md:mb-4 text-primary-100 flex items-center gap-2 flex-wrap">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-success-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Resultado da Análise
+              <span className="break-words">Resultado da Análise</span>
             </h2>
             <Results 
               result={result}
@@ -81,28 +81,28 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-16 text-center text-primary-500 text-sm">
-          <div className="glass rounded-xl p-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <svg className="w-5 h-5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <footer className="mt-12 md:mt-16 text-center text-primary-500 text-sm">
+          <div className="glass rounded-xl p-4 md:p-6 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-2 md:mb-3">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-accent-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
-              <p className="font-semibold text-primary-300">DESENVOLVIDO POR</p>
+              <p className="font-semibold text-primary-300 text-xs md:text-base">DESENVOLVIDO POR</p>
             </div>
-            <p className="mb-1">João Henrique dos Santos Silva & Carlos Vinicius Felix da Silva</p>
-            <p className="text-primary-600 mb-4">CIn - UFPE | Inteligência Artificial | 2026</p>
-            <div className="flex flex-wrap justify-center gap-4 text-xs font-mono">
+            <p className="mb-1 text-xs md:text-sm break-words px-2">João Henrique dos Santos Silva & Carlos Vinicius Felix da Silva</p>
+            <p className="text-primary-600 mb-3 md:mb-4 text-xs md:text-sm">CIn - UFPE | Inteligência Artificial | 2026</p>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-[10px] md:text-xs font-mono">
               <span className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-primary-500"></span>
-                <strong className="text-primary-400">MODELO:</strong> EfficientNetV2-S
+                <span className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0"></span>
+                <span className="whitespace-nowrap"><strong className="text-primary-400">MODELO:</strong> EfficientNetV2-S</span>
               </span>
               <span className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-success-500"></span>
-                <strong className="text-success-500">F1-MACRO:</strong> 83.87%
+                <span className="w-2 h-2 rounded-full bg-success-500 flex-shrink-0"></span>
+                <span className="whitespace-nowrap"><strong className="text-success-500">F1-MACRO:</strong> 83.87%</span>
               </span>
               <span className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-accent-500"></span>
-                <strong className="text-accent-500">ACC:</strong> 91.48%
+                <span className="w-2 h-2 rounded-full bg-accent-500 flex-shrink-0"></span>
+                <span className="whitespace-nowrap"><strong className="text-accent-500">ACC:</strong> 91.48%</span>
               </span>
             </div>
           </div>

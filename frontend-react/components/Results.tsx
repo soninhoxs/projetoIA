@@ -54,31 +54,31 @@ export default function Results({ result, imageUrl }: ResultsProps) {
   }))
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       {/* Prediction result */}
-      <div className={`${display?.bgColor}/15 border-2 ${display?.borderColor} rounded-xl p-6 text-center backdrop-blur-sm shadow-lg`}>
-        <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full ${display?.bgColor}/25 mb-4 shadow-lg`}>
-          <div className={`w-10 h-10 rounded-full ${display?.bgColor} animate-pulse shadow-xl`}></div>
+      <div className={`${display?.bgColor}/15 border-2 ${display?.borderColor} rounded-xl p-4 md:p-6 text-center backdrop-blur-sm shadow-lg`}>
+        <div className={`inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full ${display?.bgColor}/25 mb-3 md:mb-4 shadow-lg`}>
+          <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full ${display?.bgColor} animate-pulse shadow-xl`}></div>
         </div>
-        <h3 className="text-3xl font-bold mb-4 text-primary-100">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-primary-100">
           {display?.name}
         </h3>
         
         {/* Metrics */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="glass rounded-lg p-4 border border-primary-700/50">
-            <p className="text-primary-400 text-xs font-mono uppercase tracking-wider mb-2 font-semibold">
+          <div className="glass rounded-lg p-4 border border-primary-700/50 overflow-hidden">
+            <p className="text-primary-400 text-xs font-mono uppercase tracking-wider mb-2 font-semibold truncate">
               Confiança
             </p>
-            <p className="text-4xl font-bold" style={{ color: display?.color }}>
+            <p className="text-3xl sm:text-4xl font-bold truncate" style={{ color: display?.color }}>
               {(result.confidence * 100).toFixed(1)}%
             </p>
           </div>
-          <div className="glass rounded-lg p-4 border border-primary-700/50">
-            <p className="text-primary-400 text-xs font-mono uppercase tracking-wider mb-2 font-semibold">
+          <div className="glass rounded-lg p-4 border border-primary-700/50 overflow-hidden">
+            <p className="text-primary-400 text-xs font-mono uppercase tracking-wider mb-2 font-semibold truncate">
               Latência
             </p>
-            <p className="text-4xl font-bold text-accent-400">
+            <p className="text-3xl sm:text-4xl font-bold text-accent-400 truncate">
               {result.processing_time_ms.toFixed(0)}ms
             </p>
           </div>
@@ -86,27 +86,32 @@ export default function Results({ result, imageUrl }: ResultsProps) {
       </div>
 
       {/* Chart */}
-      <div className="bg-primary-900/70 rounded-xl p-5 border border-primary-700/50 backdrop-blur-sm">
-        <h4 className="text-sm font-semibold text-primary-200 mb-4 flex items-center gap-2">
-          <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="bg-primary-900/70 rounded-xl p-3 md:p-5 border border-primary-700/50 backdrop-blur-sm">
+        <h4 className="text-xs md:text-sm font-semibold text-primary-200 mb-3 md:mb-4 flex items-center gap-2 flex-wrap">
+          <svg className="w-4 h-4 text-accent-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
-          Distribuição de Probabilidades
+          <span className="break-words">Distribuição de Probabilidades</span>
         </h4>
         <ResponsiveContainer width="100%" height={220}>
-          <BarChart data={chartData} margin={{ top: 20, right: 10, left: 10, bottom: 5 }}>
+          <BarChart data={chartData} margin={{ top: 20, right: 5, left: 5, bottom: 5 }}>
             <XAxis 
               dataKey="name" 
-              tick={{ fill: '#e2e8f0', fontSize: 13, fontWeight: 600 }}
+              tick={{ fill: '#e2e8f0', fontSize: 11, fontWeight: 600 }}
               axisLine={{ stroke: '#475569', strokeWidth: 1 }}
               tickLine={false}
+              interval={0}
+              angle={-10}
+              textAnchor="end"
+              height={60}
             />
             <YAxis 
-              tick={{ fill: '#e2e8f0', fontSize: 12, fontWeight: 500 }}
+              tick={{ fill: '#e2e8f0', fontSize: 11, fontWeight: 500 }}
               axisLine={{ stroke: '#475569', strokeWidth: 1 }}
               tickLine={false}
               tickFormatter={(value) => `${value}%`}
               domain={[0, 100]}
+              width={40}
             />
             <Tooltip
               contentStyle={{
@@ -147,14 +152,14 @@ export default function Results({ result, imageUrl }: ResultsProps) {
         </ResponsiveContainer>
         
         {/* Legend */}
-        <div className="flex justify-center gap-4 mt-4 pt-3 border-t border-primary-800/50">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-3 md:mt-4 pt-2 md:pt-3 border-t border-primary-800/50">
           {chartData.map((item, index) => (
-            <div key={index} className="flex items-center gap-2">
+            <div key={index} className="flex items-center gap-1.5 md:gap-2">
               <div 
-                className="w-3 h-3 rounded-full" 
+                className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full flex-shrink-0" 
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-xs font-medium text-primary-200">{item.name}</span>
+              <span className="text-[10px] md:text-xs font-medium text-primary-200 whitespace-nowrap">{item.name}</span>
             </div>
           ))}
         </div>
