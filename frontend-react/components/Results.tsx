@@ -86,28 +86,29 @@ export default function Results({ result, imageUrl }: ResultsProps) {
       </div>
 
       {/* Chart */}
-      <div className="bg-primary-900/70 rounded-xl p-5 border border-primary-700/50 backdrop-blur-sm overflow-hidden">
-        <h4 className="text-sm font-semibold text-primary-200 mb-4 flex items-center gap-2">
+      <div className="bg-primary-900/70 rounded-xl p-3 sm:p-5 border border-primary-700/50 backdrop-blur-sm overflow-visible">
+        <h4 className="text-xs sm:text-sm font-semibold text-primary-200 mb-3 sm:mb-4 flex items-center gap-2">
           <svg className="w-4 h-4 text-accent-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
           <span className="truncate">Distribuição de Probabilidades</span>
         </h4>
-        <ResponsiveContainer width="100%" height={220}>
-          <BarChart data={chartData} margin={{ top: 20, right: 10, left: 0, bottom: 5 }}>
-            <XAxis 
-              dataKey="name" 
-              tick={{ fill: '#e2e8f0', fontSize: 12, fontWeight: 600 }}
-              axisLine={{ stroke: '#475569', strokeWidth: 1 }}
-              tickLine={false}
-            />
-            <YAxis 
-              tick={{ fill: '#e2e8f0', fontSize: 11, fontWeight: 500 }}
-              axisLine={{ stroke: '#475569', strokeWidth: 1 }}
-              tickLine={false}
-              tickFormatter={(value) => `${value}%`}
-              domain={[0, 100]}
-            />
+        <div className="w-full" style={{ minHeight: '220px' }}>
+          <ResponsiveContainer width="100%" height={220}>
+            <BarChart data={chartData} margin={{ top: 10, right: 5, left: -10, bottom: 5 }}>
+              <XAxis 
+                dataKey="name" 
+                tick={{ fill: '#e2e8f0', fontSize: 10, fontWeight: 600 }}
+                axisLine={{ stroke: '#475569', strokeWidth: 1 }}
+                tickLine={false}
+              />
+              <YAxis 
+                tick={{ fill: '#e2e8f0', fontSize: 10, fontWeight: 500 }}
+                axisLine={{ stroke: '#475569', strokeWidth: 1 }}
+                tickLine={false}
+                tickFormatter={(value) => `${value}%`}
+                domain={[0, 100]}
+              />
             <Tooltip
               contentStyle={{
                 backgroundColor: '#0f172a',
@@ -145,16 +146,17 @@ export default function Results({ result, imageUrl }: ResultsProps) {
             </Bar>
           </BarChart>
         </ResponsiveContainer>
+        </div>
         
         {/* Legend */}
-        <div className="flex flex-wrap justify-center gap-4 mt-4 pt-3 border-t border-primary-800/50">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-3 sm:mt-4 pt-2 sm:pt-3 border-t border-primary-800/50">
           {chartData.map((item, index) => (
-            <div key={index} className="flex items-center gap-2">
+            <div key={index} className="flex items-center gap-1.5 sm:gap-2">
               <div 
-                className="w-3 h-3 rounded-full flex-shrink-0" 
+                className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full flex-shrink-0" 
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-xs font-medium text-primary-200 whitespace-nowrap">{item.name}</span>
+              <span className="text-[10px] sm:text-xs font-medium text-primary-200 whitespace-nowrap">{item.name}</span>
             </div>
           ))}
         </div>
