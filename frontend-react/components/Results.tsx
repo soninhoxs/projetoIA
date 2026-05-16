@@ -16,7 +16,7 @@ const classDisplay = {
     borderColor: 'border-primary-400'
   },
   belgian_blocks: { 
-    name: 'Blocos Belgas', 
+    name: 'Paralelepípedo', 
     color: '#38bdf8', // Azul mais vibrante
     bgColor: 'bg-accent-500',
     borderColor: 'border-accent-400'
