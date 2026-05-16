@@ -6,8 +6,8 @@ export default function StatusBadge({ isOnline }: StatusBadgeProps) {
   return (
     <div
       className={`
-        inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full
-        text-[10px] md:text-xs font-mono font-bold tracking-wider uppercase
+        inline-flex items-center gap-2 px-4 py-2 rounded-full
+        text-xs font-mono font-bold tracking-wider uppercase
         border transition-all duration-300
         ${
           isOnline
@@ -16,12 +16,12 @@ export default function StatusBadge({ isOnline }: StatusBadgeProps) {
         }
       `}
     >
-      <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2 flex-shrink-0">
+      <span className="relative flex h-2 w-2 flex-shrink-0">
         {isOnline && (
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-400 opacity-75"></span>
         )}
         <span
-          className={`relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 ${
+          className={`relative inline-flex rounded-full h-2 w-2 ${
             isOnline ? 'bg-success-500' : 'bg-red-500'
           }`}
         ></span>
