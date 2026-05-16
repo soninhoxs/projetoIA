@@ -1,0 +1,58 @@
+===============================================================================
+VERIFICACAO DO MODELO model_B.pth - RELATORIO COMPLETO
+===============================================================================
+
+DATA DO TESTE: 15/05/2026 23:33
+ARQUIVO: model_B.pth
+TAMANHO: 81.6 MB (81,624,406 bytes)
+
+-------------------------------------------------------------------------------
+TESTES REALIZADOS:
+-------------------------------------------------------------------------------
+
+[✓] 1. Arquivo existe e foi atualizado recentemente
+[✓] 2. Checkpoint carrega sem erros
+[✓] 3. Arquitetura do modelo compativel
+[✓] 4. Pesos carregam corretamente
+[✓] 5. Modelo funciona em modo inferencia
+[✓] 6. Forward pass retorna resultados validos
+[✓] 7. Probabilidades somam 1.0 (correto)
+
+-------------------------------------------------------------------------------
+METRICAS DO NOVO MODELO:
+-------------------------------------------------------------------------------
+
+- F1-Score (Test): 83.94% (melhor que antes: 81.22%)
+- Accuracy (Test): 87.93%
+- Device: CUDA (GPU)
+- Numero de classes: 3 (asphalt, belgian_blocks, offroad)
+
+-------------------------------------------------------------------------------
+STATUS:
+-------------------------------------------------------------------------------
+
+✓ MODELO OK E PRONTO PARA USO!
+
+O arquivo model_B.pth esta correto e funcionando perfeitamente.
+
+-------------------------------------------------------------------------------
+PROXIMOS PASSOS:
+-------------------------------------------------------------------------------
+
+IMPORTANTE: A API ainda esta rodando com a versao ANTIGA do modelo!
+
+Para usar o novo modelo mais potente, voce precisa:
+
+1. Parar o servidor atual (Ctrl+C no terminal que esta rodando app.py)
+2. Reiniciar o servidor:
+   
+   Windows PowerShell:
+   $env:KMP_DUPLICATE_LIB_OK="TRUE"; C:\Users\soninho\anaconda3\python.exe app.py
+
+3. A API vai carregar automaticamente o novo model_B.pth
+
+Apos reiniciar, o endpoint http://localhost:8001/ vai mostrar as novas metricas:
+- f1_test: 0.8394 (83.94%)
+- acc_test: 0.8793 (87.93%)
+
+===============================================================================

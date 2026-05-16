@@ -103,6 +103,44 @@ João Henrique dos Santos Silva & Carlos Vinicius Felix da Silva
 
 ---
 
+## 📁 Estrutura do Projeto
+
+```
+trabalho-ia/
+├── 📁 backend-go/              # Backend alternativo em Go (descontinuado)
+├── 📁 dataset_processed/       # Dataset organizado e processado
+│   ├── train/                  # Dados de treino
+│   ├── val/                    # Dados de validação
+│   └── test/                   # Dados de teste
+├── 📁 frontend-react/          # Frontend em React/Next.js
+│   ├── app/                    # Páginas e layouts
+│   ├── components/             # Componentes React
+│   ├── lib/                    # Utilitários e API client
+│   ├── types/                  # TypeScript types
+│   └── public/                 # Arquivos estáticos
+├── 📁 notebooks/               # Notebooks Jupyter de treinamento
+│   ├── ProjetoFinal_IA_UFPE4.ipynb  # Versão mais recente
+│   └── ...
+├── 📁 results/                 # Resultados do treinamento
+│   ├── plots/                  # Gráficos e visualizações
+│   │   ├── curvas_finais.png
+│   │   ├── matrizes_finais.png
+│   │   └── ...
+│   └── images/                 # Imagens auxiliares
+├── 📁 scripts/                 # Scripts auxiliares
+│   └── frontend_premium.py     # Frontend alternativo
+├── 📁 docs/                    # Documentação adicional
+│   ├── README_PROJECT.md
+│   └── VERIFICACAO_MODELO.txt
+├── 📄 app.py                   # API FastAPI (Backend Principal)
+├── 📄 model_B.pth              # Modelo treinado (83.94% F1-Score)
+├── 📄 requirements.txt         # Dependências Python
+├── 📄 README.md                # Este arquivo
+└── 📄 .gitignore               # Arquivos ignorados pelo git
+```
+
+---
+
 ## 🚀 Instalação
 
 ### Pré-requisitos
